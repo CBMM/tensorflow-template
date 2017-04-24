@@ -1,25 +1,28 @@
 { pkgs ? import <nixpkgs> {} }:
 
 with pkgs;
-stdenv.mkDerivation {
+let pypkgs = python3Packages;
+    pyfull = python3Full;
+in stdenv.mkDerivation {
   name = "sample-impure-env";
-  buildInputs = with python3Packages; [
+  buildInputs = with pypkgs; [
     # basic inputs
-    python3Full
-    python3Packages.virtualenv
-    python3Packages.pip
-    python3Packages.nose2
+    pyfull
+    pypkgs.virtualenv
+    pypkgs.pip
 
     # project-specific
-    tensorflow];
+    tensorflow
+    ];
   src = null;
   shellHook = ''
     # set SOURCE_DATE_EPOCH so that we can use python wheels
     SOURCE_DATE_EPOCH=$(date +%s)
-    virtualenv --no-setuptools venv
+    virtualenv venv
     export PATH=$PWD/venv/bin:$PATH
-    pip freeze --all > requirements.txt
-    pip install -r requirements.txt
+    source activate
+    # pip freeze --all > requirements.txt
+    pip install -r requirements.txt -I
     pip install nose2 -I
   '';
 }
