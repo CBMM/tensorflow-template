@@ -8,6 +8,7 @@ stdenv.mkDerivation {
     python3Full
     python3Packages.virtualenv
     python3Packages.pip
+    python3Packages.nose2
 
     # project-specific
     tensorflow];
@@ -19,5 +20,6 @@ stdenv.mkDerivation {
     export PATH=$PWD/venv/bin:$PATH
     pip freeze --all > requirements.txt
     pip install -r requirements.txt
+    pip install nose2 -I
   '';
 }

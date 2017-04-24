@@ -2,6 +2,7 @@ funcsigs==1.0.2
 google-apputils==0.4.1
 mock==2.0.0
 mox==0.5.3
+nose2==0.5.0
 numpy==1.11.3
 pbr==1.8.1
 pip==9.0.1
