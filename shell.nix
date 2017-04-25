@@ -12,7 +12,7 @@ in stdenv.mkDerivation {
     pypkgs.pip
 
     # project-specific
-    tensorflow
+    tensorflowWithCuda
     ];
   src = null;
   shellHook = ''
