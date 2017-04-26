@@ -1,5 +1,3 @@
-from .context import project
-
 from project import example
 
 import unittest
