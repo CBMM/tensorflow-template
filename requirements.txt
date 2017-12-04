@@ -15,6 +15,6 @@ python-gflags>=2.0
 pytz>=2016.6.1
 setuptools>=30.2.0
 six>=1.10.0
-tensorflow>=1.0.0
 virtualenv>=15.0.3
 wheel>=0.30.0a0
+https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.4.0-cp36-cp36m-linux_x86_64.whl
